@@ -22,6 +22,10 @@ AFloater::AFloater()
 void AFloater::BeginPlay()
 {
 	Super::BeginPlay();
+	float x = FMath::RandRange(-100, 100);
+	float y = FMath::RandRange(-100, 100);
+	float z = FMath::RandRange(-100, 100);
+	InitialLocation = FVector(x, y, z);
 
 	PlacedLocation = GetActorLocation();
 	
@@ -38,8 +42,11 @@ void AFloater::Tick(float DeltaTime)
 
 	if (bIsShouldFloat)
 	{
-		FHitResult HitResult;
-		AddActorLocalOffset(InitialDirection, false, &HitResult);
+		FVector NewLocation = GetActorLocation();
+		NewLocation.Z = NewLocation.Z + Amplitude * FMath::Sin(TimeStretch * time) + C;
+
+		SetActorLocation(NewLocation);
+		time += DeltaTime;
 	}
 
 }

@@ -19,7 +19,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere,Category = "Mesh")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Mesh")
 	UStaticMeshComponent* Mesh;
 
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, category = "Floater Vector")
@@ -43,5 +43,15 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+private:
+	UPROPERTY(EditAnywhere, Category = "Floater Vector | Wave parameters")
+	float Amplitude = 1.0f;
+	UPROPERTY(EditAnywhere, Category = "Floater Vector | Wave parameters")
+	float TimeStretch = 1.0f;
+	UPROPERTY(EditAnywhere, Category = "Floater Vector | Wave parameters")
+	float C = 0.0f;
+	UPROPERTY(EditAnywhere, Category = "Floater Vector | Wave parameters")
+	float time = 0.0f;
 
 };
