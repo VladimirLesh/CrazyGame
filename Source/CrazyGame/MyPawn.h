@@ -32,4 +32,12 @@ public:
 	UPROPERTY(EditAnywhere, Category = "CameraComponent")
 	UCameraComponent* Camera;
 
+	UPROPERTY(EditAnywhere, Category = "PawnMovement")
+	float maxSpeed;
+
+private:
+	void MoveForward(float Value);
+	void MoveRight(float Value);
+	FVector currentVelocity;
+
 };
