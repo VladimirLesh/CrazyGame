@@ -31,9 +31,28 @@ public:
 
 	UPROPERTY(VisibleAnywhere, Category = "MeshComponent")
 	class USphereComponent* SphereComponent;
+	UPROPERTY(VisibleAnywhere, Category = "CameraComponent")
+	class UCameraComponent* Camera;
+	UPROPERTY(VisibleAnywhere, Category = "CameraComponent")
+	class USpringArmComponent* SpringArm;
+
+	UPROPERTY(VisibleAnywhere, Category = "ColliderMovementC")
+	class UColliderMovementC* ColliderMovementC;
+
+	virtual UPawnMovementComponent* GetMovementComponent() const override;
 
 	FORCEINLINE UStaticMeshComponent* GetMeshComponent() const { return MeshComponent; }
 	FORCEINLINE void SetMeshComponent(UStaticMeshComponent* NewMeshComponent) { MeshComponent = NewMeshComponent; }
 	FORCEINLINE USphereComponent* GetSphereComponent() const { return SphereComponent; }
 	FORCEINLINE void SetMeshComponent(USphereComponent* NewSphereComponent) { SphereComponent = NewSphereComponent; }
+	FORCEINLINE UCameraComponent* GetCameraComponent() const { return Camera; }
+	FORCEINLINE void SetCameraComponent(UCameraComponent* NewCameraComponent) { Camera = NewCameraComponent; }
+	FORCEINLINE USpringArmComponent* GetSpringArmComponent() const { return SpringArm; }
+	FORCEINLINE void SetSprngArmComponent(USpringArmComponent* NewSpringArmComponent) { SpringArm = NewSpringArmComponent; } 
+
+private:
+	void MoveForward(float Value);
+	void MoveRight(float Value);
 };
+
+

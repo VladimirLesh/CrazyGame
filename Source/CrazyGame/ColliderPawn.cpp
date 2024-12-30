@@ -3,8 +3,12 @@
 
 #include "ColliderPawn.h"
 
+#include "ColliderMovementC.h"
+#include "Camera/CameraComponent.h"
 #include "Components/SphereComponent.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Components/InputComponent.h"
+#include "GameFramework/SpringArmComponent.h"
 
 // Sets default values
 AColliderPawn::AColliderPawn()
@@ -12,8 +16,9 @@ AColliderPawn::AColliderPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+	
+	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
 	SphereComponent->SetupAttachment(RootComponent);
 	SphereComponent->InitSphereRadius(40.f);
 	SphereComponent->SetCollisionProfileName("Pawn");
@@ -21,30 +26,26 @@ AColliderPawn::AColliderPawn()
 	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
 	MeshComponent->SetupAttachment(RootComponent);
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshComponentAsset(TEXT("D:/Fork/CrazyGame/Content/StarterContent/Shapes/Shape_Sphere.uasset"));
+	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
+	SpringArm->SetupAttachment(RootComponent);
+	SpringArm->SetRelativeRotation(FRotator(-45.f, 0.f, 0.f));
+	SpringArm->TargetArmLength = 400.f; // The length of the spring arm
+	SpringArm->bEnableCameraLag = true; // Smoothly move camera to follow the spring arm
+	SpringArm->CameraLagSpeed = 3.f; // Speed of camera movement
+	
+	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
+	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
 
-    if (MeshComponentAsset.Succeeded())
-    {
-	    MeshComponent->SetStaticMesh(MeshComponentAsset.Object);
-    }
+	ColliderMovementC = CreateDefaultSubobject<UColliderMovementC>(TEXT("ColliderMovementC"));
+	ColliderMovementC->UpdatedComponent = RootComponent;
+
+	AutoPossessPlayer = EAutoReceiveInput::Player0; 
 }
 
 // Called when the game starts or when spawned
 void AColliderPawn::BeginPlay()
 {
 	Super::BeginPlay();
-
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshComponentAsset(TEXT("D:/Fork/CrazyGame/Content/StarterContent/Shapes/Shape_Sphere.uasset"));
-
-	if (MeshComponentAsset.Succeeded())
-	{
-		MeshComponent->SetStaticMesh(MeshComponentAsset.Object);
-		UE_LOG(LogTemp, Warning, TEXT("MeshComponentAsset is found"));
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("MeshComponentAsset is not found"));
-	}
 	
 }
 
@@ -60,5 +61,29 @@ void AColliderPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	PlayerInputComponent->BindAxis("MoveForvard", this, &AColliderPawn::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &AColliderPawn::MoveRight);
+
+}
+
+void AColliderPawn::MoveRight(float Value)
+{
+	FVector RIghtVector = GetActorRightVector();
+	
+	if (ColliderMovementC)
+		ColliderMovementC->AddInputVector(RIghtVector * Value);
+}
+
+void AColliderPawn::MoveForward(float Value)
+{
+	FVector ForwardVector = GetActorForwardVector();
+	
+	if (ColliderMovementC)
+		ColliderMovementC->AddInputVector(ForwardVector * Value);
+}
+
+UPawnMovementComponent* AColliderPawn::GetMovementComponent() const
+{
+	return ColliderMovementC;
 }
 
