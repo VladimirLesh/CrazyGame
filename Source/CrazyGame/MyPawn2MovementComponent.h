@@ -16,5 +16,8 @@ class CRAZYGAME_API UMyPawn2MovementComponent : public UPawnMovementComponent
 	
 public:
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MyPawn2MovementComponent")
+	float Speed = 300.0f;
 	
 };

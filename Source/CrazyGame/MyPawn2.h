@@ -37,8 +37,13 @@ public:
 
 	virtual UPawnMovementComponent* GetMovementComponent() const override;
 
-	void MoveForward(float X);
-	void MoveRight(float X);
+private:
+	void MoveForward(float value);
+	void MoveRight(float value);
+	void PitchCamera(float value);
+	void YawCamera(float value);
+
+	FVector2d CameraInput;
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 

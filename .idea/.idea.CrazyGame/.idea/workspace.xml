@@ -14,19 +14,18 @@
   <component name="ChangeListManager">
     <list default="true" id="a4f4c9b7-9c40-45e0-95c5-fb87a922f354" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CrazyGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrazyGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Architecture/Floor_400x400.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_ColliderPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_ColliderPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_MyFloater.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_MyFloater.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_MyPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_MyPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Blueprints/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Blueprints/BP_MyGameModeBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_MyPawn.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_MyPawn2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_MyPawn2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Blueprints/BP_MyGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Blueprints/BP_MyGameMode.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/StarterContent/Maps/MyMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Maps/MyMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Mesh/XYZAxes.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Mesh/XYZAxes.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/StarterContent/Maps/MyMap/8/4U/56WVYQC0O25GASGIWC8AOY.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/StarterContent/Maps/MyMap/E/VX/SCCYGJUABSH9MLZ4OEEE6B.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/StarterContent/Maps/MyMap/E/VX/SCCYGJUABSH9MLZ4OEEE6B.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/StarterContent/Maps/MyMap/D/XC/2OXBC69SQGNBBL190ZOBS1.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CrazyGame.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/CrazyGame.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/CrazyGame/ColliderPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/CrazyGame/ColliderPawn.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/CrazyGame/ColliderPawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/CrazyGame/ColliderPawn.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/CrazyGame/MyPawn2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/CrazyGame/MyPawn2.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/CrazyGame/MyPawn2.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/CrazyGame/MyPawn2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/CrazyGame/MyPawn2MovementComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/CrazyGame/MyPawn2MovementComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/CrazyGame/MyPawn2MovementComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/CrazyGame/MyPawn2MovementComponent.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +51,7 @@
     <setting file="file://C:/Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Components/MovementComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Components/PawnMovementComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/GameModeBase.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Pawn.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/CrazyGame/ColliderMovementC.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/CrazyGame/ColliderMovementC.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/CrazyGame/ColliderPawn.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -250,6 +250,7 @@
       <workItem from="1735590575919" duration="852000" />
       <workItem from="1735592387708" duration="738000" />
       <workItem from="1735593168936" duration="2768000" />
+      <workItem from="1735658035839" duration="1847000" />
     </task>
     <servers />
   </component>

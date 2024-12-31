@@ -13,7 +13,7 @@ void UMyPawn2MovementComponent::TickComponent(float DeltaTime, enum ELevelTick T
 		return;
 	}
 
-	FVector DesiredMovementThisFrame = ConsumeInputVector().GetClampedToMaxSize(1.0f) * DeltaTime * 150.0f;
+	FVector DesiredMovementThisFrame = ConsumeInputVector().GetClampedToMaxSize(1.0f) * DeltaTime * Speed;
 
 	if (!DesiredMovementThisFrame.IsNearlyZero())
 	{

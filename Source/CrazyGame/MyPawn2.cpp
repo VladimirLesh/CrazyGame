@@ -31,6 +31,8 @@ AMyPawn2::AMyPawn2()
 	MovementComponent = CreateDefaultSubobject<UMyPawn2MovementComponent>(TEXT("MovementComponent"));
 	MovementComponent->UpdatedComponent = RootComponent;
 
+	CameraInput = FVector2d(0.0f, 0.0f);
+
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
 }
@@ -47,6 +49,15 @@ void AMyPawn2::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	FRotator CurrentRotation = GetActorRotation();
+
+	CurrentRotation.Yaw += CameraInput.X;
+	SetActorRotation(CurrentRotation);
+
+	FRotator CameraRotation = SpringArm->GetComponentRotation();
+	CameraRotation.Pitch = FMath::Clamp(CameraRotation.Pitch += CameraInput.Y, -80.0f, -15.0f);
+	SpringArm->SetWorldRotation(CameraRotation);
+
 }
 
 UPawnMovementComponent* AMyPawn2::GetMovementComponent() const
@@ -54,16 +65,26 @@ UPawnMovementComponent* AMyPawn2::GetMovementComponent() const
 	return MovementComponent;
 }
 
-void AMyPawn2::MoveForward(float X)
+void AMyPawn2::MoveForward(float value)
 {
 	FVector ForwardVector = GetActorForwardVector();
-	MovementComponent->AddInputVector(ForwardVector * X, true);
+	MovementComponent->AddInputVector(ForwardVector * value, true);
 }
 
-void AMyPawn2::MoveRight(float X)
+void AMyPawn2::MoveRight(float value)
 {
 	FVector RightVector = GetActorRightVector();
-	MovementComponent->AddInputVector(RightVector * X, true);
+	MovementComponent->AddInputVector(RightVector * value, true);
+}
+
+void AMyPawn2::PitchCamera(float value)
+{
+	CameraInput.Y = value;
+}
+
+void AMyPawn2::YawCamera(float value)
+{
+	CameraInput.X = value;
 }
 
 // Called to bind functionality to input
@@ -73,6 +94,8 @@ void AMyPawn2::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 	PlayerInputComponent->BindAxis("MoveForvard", this, &AMyPawn2::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMyPawn2::MoveRight);
+	PlayerInputComponent->BindAxis("CameraPitch", this, &AMyPawn2::PitchCamera);
+	PlayerInputComponent->BindAxis("CameraYaw", this, &AMyPawn2::YawCamera);
 
 }
 
