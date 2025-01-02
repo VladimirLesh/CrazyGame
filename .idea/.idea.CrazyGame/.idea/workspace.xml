@@ -16,10 +16,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CrazyGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrazyGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_MainCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_MainCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Blueprints/Actors/BP_MainCharacter.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/StarterContent/Blueprints/BP_MyGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Blueprints/BP_MyGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Blueprints/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Blueprints/BP_MyGameModeBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/CrazyGame/MainCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/CrazyGame/MainCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/CrazyGame/MainCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/CrazyGame/MainCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +254,8 @@
       <workItem from="1735590575919" duration="852000" />
       <workItem from="1735592387708" duration="738000" />
       <workItem from="1735593168936" duration="2768000" />
-      <workItem from="1735658035839" duration="9429000" />
+      <workItem from="1735658035839" duration="10134000" />
+      <workItem from="1735842436460" duration="6307000" />
     </task>
     <servers />
   </component>

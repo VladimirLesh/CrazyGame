@@ -3,6 +3,7 @@
 #include "MainCharacter.h"
 
 #include "Camera/CameraComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
 // Sets default values
@@ -23,9 +24,18 @@ AMainCharacter::AMainCharacter()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	Camera->bUsePawnControlRotation = false;
+	
+	bUseControllerRotationPitch = false;
+	bUseControllerRotationYaw = false;
+	bUseControllerRotationRoll = false;
 
 	BaseTurnRate = 65.f;
 	BaseLookUpRate = 65.f;
+
+	GetCharacterMovement()->bOrientRotationToMovement = true;
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 800.0f, 0.0f);
+	GetCharacterMovement()->JumpZVelocity = 400.f;
+	GetCharacterMovement()->AirControl = 0.5f;
 }
 
 // Called when the game starts or when spawned
