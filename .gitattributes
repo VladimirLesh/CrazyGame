@@ -1,1 +1,5 @@
 *.uasset filter=lfs diff=lfs merge=lfs -text
+*.umap filter=lfs diff=lfs merge=lfs -text
+Content/Fantasy_Pack/** filter=lfs diff=lfs merge=lfs -text
+Content/FantasyBundle/** filter=lfs diff=lfs merge=lfs -text
+Content/FXVarietyPack/** filter=lfs diff=lfs merge=lfs -text
